@@ -1,13 +1,10 @@
 import time
-
-
 def Time_taken(func):
-    import time
-    def wrapper(args):
+    def wrapper(*args,**kwargs):
         # print(f"{args}")
         start_time = time.time()
         # print(f"Start time: {start_time}")
-        result = func(args)
+        result = func(*args,**kwargs)
         # print(time.time())
         end_time = time.time()-start_time
         print(f"the factorial of {args} is {result}, and time taken for it is: {end_time}")
@@ -28,8 +25,8 @@ def factorial(num):
 @Time_taken
 def Factorial(num):
     time.sleep(1)
-    # print("Inside Factorial")
-    # print(num)
+    print("Inside Factorial")
+    print(num)
     result = 1
     for i in range(1,num+1):
         result *= i
